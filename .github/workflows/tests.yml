@@ -27,3 +27,8 @@ jobs:
       run: |
         pytest test_calculadora.py --html=report.html --self-contained-html
 
+    - name: 📤 Subir reporte HTML como artefacto
+      uses: actions/upload-artifact@v3
+      with:
+        name: reporte-pruebas
+        path: report.html
