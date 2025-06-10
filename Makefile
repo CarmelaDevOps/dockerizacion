@@ -36,3 +36,15 @@ release:
 	docker push $(IMAGE_NAME):latest
 	@echo "✅ Imagen subida como $(IMAGE_NAME):$(v) y latest"
 
+venv:
+	python3 -m venv venv
+	source venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt
+
+test:
+	source venv/bin/activate && pytest test_calculadora.py --html=report.html --self-contained-html
+
+reporte_html:
+	source venv/bin/activate && pytest test_calculadora.py --html=report.html --self-contained-html
+
+clean:
+	rm -rf __pycache__ *.pyc *.log report.html
