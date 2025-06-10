@@ -21,9 +21,9 @@ jobs:
 
     - name: 📦 Instalar dependencias
       run: |
-        pip install pytest
+        pip install pytest pytest-html
 
-    - name: 🧪 Ejecutar pruebas con pytest
+    - name: 🧪 Ejecutar pruebas con pytest con reporte HTML
       run: |
-        pytest test_calculadora.py
+        pytest test_calculadora.py --html=report.html --self-contained-html
 
